@@ -19,7 +19,10 @@
 - (void) viewDidLoad
 {
     [super viewDidLoad];
-    [self configureRestKit];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissAlert)];
+    [self.view addGestureRecognizer:tap];
+    
+//    [self configureRestKit];
     
 	// Do any additional setup after loading the view, typically from a nib.
     
@@ -27,29 +30,29 @@
 }
 
 
-- (void)configureRestKit
-{
-    // initialize AFNetworking HTTPClient
-    NSURL *baseURL = [NSURL URLWithString:@"localhost"];
-    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
-    
-    // initialize RestKit
-    RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
-    
-    // setup object mappings
-    RKObjectMapping *venueMapping = [RKObjectMapping mappingForClass:[Connection class]];
-    [venueMapping addAttributeMappingsFromArray:@[@"name"]];
-    
-    // register mappings with the provider using a response descriptor
-    RKResponseDescriptor *responseDescriptor =
-    [RKResponseDescriptor responseDescriptorWithMapping:venueMapping
-                                                 method:RKRequestMethodGET
-                                            pathPattern:@"/v2/venues/search"
-                                                keyPath:@"response.venues"
-                                            statusCodes:[NSIndexSet indexSetWithIndex:200]];
-    
-    [objectManager addResponseDescriptor:responseDescriptor];
-}
+//- (void)configureRestKit
+//{
+//    // initialize AFNetworking HTTPClient
+//    NSURL *baseURL = [NSURL URLWithString:@"localhost"];
+//    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
+//    
+//    // initialize RestKit
+//    RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
+//    
+//    // setup object mappings
+//    RKObjectMapping *venueMapping = [RKObjectMapping mappingForClass:[Connection class]];
+//    [venueMapping addAttributeMappingsFromArray:@[@"name"]];
+//    
+//    // register mappings with the provider using a response descriptor
+//    RKResponseDescriptor *responseDescriptor =
+//    [RKResponseDescriptor responseDescriptorWithMapping:venueMapping
+//                                                 method:RKRequestMethodGET
+//                                            pathPattern:@"/v2/venues/search"
+//                                                keyPath:@"response.venues"
+//                                            statusCodes:[NSIndexSet indexSetWithIndex:200]];
+//    
+//    [objectManager addResponseDescriptor:responseDescriptor];
+//}
 
 - (void) didReceiveMemoryWarning
 {
@@ -57,15 +60,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-
--(void) connectToDB
-{
-    NSURL *url = [NSURL URLWithString:@"insert url here"];
-    NSLog(url);
-    
-}
-
-@synthesize username, password;
+@synthesize username, password, sender, alert;
 
 - (BOOL) login
 {
@@ -75,7 +70,7 @@
     
     
     if ([[username text] isEqual: (@"jeremiah")]) {
-        if ([username isEqual: (@"jeremiah")] && [password isEqual:(@"password")]) {
+        if ([[username text] isEqual: (@"jeremiah")] && [[password text] isEqual:(@"password")]) {
             return YES;
         }
         else {
@@ -86,6 +81,22 @@
         return NO;
     }
 }
+
+-(IBAction)loginWorked: (id) sender
+{
+    if ([self login]) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Login Alert" message:@"Login Success!!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+        [alertView show];
+        
+    }
+    else {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Login Alert" message:@"Login Failed try again" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+        [alertView show];
+    }
+    
+}
+
+
 
 
 

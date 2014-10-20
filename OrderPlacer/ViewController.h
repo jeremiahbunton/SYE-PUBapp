@@ -14,11 +14,17 @@
 
 @property IBOutlet UITextField * username;
 @property IBOutlet UITextField * password;
+@property UIButton * sender;
 
--(void) configureRestKit;
+//-(void) configureRestKit;
 -(BOOL) login;
--(void) connectToDB;
+-(void) dismissAlert;
+//-(void) connectToDB;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+
+@property (strong, nonatomic) IBOutlet UIView *mainView;
 
 
+@property UIAlertView *alert;
 
 @end

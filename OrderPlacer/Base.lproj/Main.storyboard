@@ -40,7 +40,7 @@
                                 <rect key="frame" x="150" y="200" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpm-Zy-UbY">
                                 <rect key="frame" x="150" y="247" width="56" height="30"/>
@@ -49,18 +49,22 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginWorked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Wcn-Zf-Y75"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="Hpm-Zy-UbY" id="HLS-hb-32g"/>
                         <outlet property="password" destination="07n-VF-ITS" id="IGC-3a-ywq"/>
                         <outlet property="username" destination="yLh-JA-VIU" id="bow-1g-wy8"/>
-                        <outlet property="view" destination="Hpm-Zy-UbY" id="ZOv-8A-DL3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="52" y="42"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
