@@ -28,7 +28,6 @@
 		E3634632198F21FA0009754D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3634614198F21FA0009754D /* UIKit.framework */; };
 		E363463A198F21FA0009754D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E3634638198F21FA0009754D /* InfoPlist.strings */; };
 		E363463C198F21FA0009754D /* OrderPlacerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E363463B198F21FA0009754D /* OrderPlacerTests.m */; };
-		E3A9330119F478700008843F /* Storyboard2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3A9330019F478700008843F /* Storyboard2.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,8 +103,6 @@
 		E3634637198F21FA0009754D /* OrderPlacerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OrderPlacerTests-Info.plist"; sourceTree = "<group>"; };
 		E3634639198F21FA0009754D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E363463B198F21FA0009754D /* OrderPlacerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderPlacerTests.m; sourceTree = "<group>"; };
-		E3A9330019F478700008843F /* Storyboard2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard2.storyboard; sourceTree = "<group>"; };
-		E3A9330219F479660008843F /* ViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,8 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				E363461F198F21FA0009754D /* AppDelegate.h */,
-				E3A9330019F478700008843F /* Storyboard2.storyboard */,
-				E3A9330219F479660008843F /* ViewController2.h */,
 				E3634620198F21FA0009754D /* AppDelegate.m */,
 				E3634622198F21FA0009754D /* Main.storyboard */,
 				E3634625198F21FA0009754D /* ViewController.h */,
@@ -346,7 +341,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3A9330119F478700008843F /* Storyboard2.storyboard in Resources */,
 				E3634629198F21FA0009754D /* Images.xcassets in Resources */,
 				E363461B198F21FA0009754D /* InfoPlist.strings in Resources */,
 				E3634624198F21FA0009754D /* Main.storyboard in Resources */,

@@ -22,7 +22,7 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissAlert)];
     [self.view addGestureRecognizer:tap];
     
-//    [self configureRestKit];
+    [self configureRestKit];
     
 	// Do any additional setup after loading the view, typically from a nib.
     
@@ -30,29 +30,29 @@
 }
 
 
-//- (void)configureRestKit
-//{
-//    // initialize AFNetworking HTTPClient
-//    NSURL *baseURL = [NSURL URLWithString:@"localhost"];
-//    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
-//    
-//    // initialize RestKit
-//    RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
-//    
-//    // setup object mappings
-//    RKObjectMapping *venueMapping = [RKObjectMapping mappingForClass:[Connection class]];
-//    [venueMapping addAttributeMappingsFromArray:@[@"name"]];
-//    
-//    // register mappings with the provider using a response descriptor
-//    RKResponseDescriptor *responseDescriptor =
-//    [RKResponseDescriptor responseDescriptorWithMapping:venueMapping
-//                                                 method:RKRequestMethodGET
-//                                            pathPattern:@"/v2/venues/search"
-//                                                keyPath:@"response.venues"
-//                                            statusCodes:[NSIndexSet indexSetWithIndex:200]];
-//    
-//    [objectManager addResponseDescriptor:responseDescriptor];
-//}
+- (void)configureRestKit
+{
+    // initialize AFNetworking HTTPClient
+    NSURL *baseURL = [NSURL URLWithString:@"localhost"];
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
+    
+    // initialize RestKit
+    RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
+    
+    // setup object mappings
+    RKObjectMapping *venueMapping = [RKObjectMapping mappingForClass:[Connection class]];
+    [venueMapping addAttributeMappingsFromArray:@[@"name"]];
+    
+    // register mappings with the provider using a response descriptor
+    RKResponseDescriptor *responseDescriptor =
+    [RKResponseDescriptor responseDescriptorWithMapping:venueMapping
+                                                 method:RKRequestMethodGET
+                                            pathPattern:@"/v2/venues/search"
+                                                keyPath:@"response.venues"
+                                            statusCodes:[NSIndexSet indexSetWithIndex:200]];
+    
+    [objectManager addResponseDescriptor:responseDescriptor];
+}
 
 - (void) didReceiveMemoryWarning
 {
