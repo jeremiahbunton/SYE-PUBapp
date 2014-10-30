@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SecondViewController.h"
 
 
 @interface ViewController ()
@@ -15,12 +16,15 @@
 
 @implementation ViewController
 
+@synthesize username, password, users;
+
 
 - (void) viewDidLoad
 {
     [super viewDidLoad];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissAlert)];
-    [self.view addGestureRecognizer:tap];
+    
+    users = @{@"jeremiah": @"username",
+              @"password": @"password"};
     
     [self configureRestKit];
     
@@ -60,42 +64,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-@synthesize username, password, sender, alert;
 
-- (BOOL) login
+
+-(IBAction)login: (id) sender
+
+// Check to see if the user exists, if so then check to see if the password is correct
+// Figure out how to access data inside the dictionary
 {
-    // Check to see if the user exists, if so then check to see if the password is correct
-    // Figure out how to access data inside the dictionary
-    
-    
-    
-    if ([[username text] isEqual: (@"jeremiah")]) {
-        if ([[username text] isEqual: (@"jeremiah")] && [[password text] isEqual:(@"password")]) {
-            return YES;
-        }
-        else {
-            return NO;
-        }
+    if ([users objectForKey:username.text] && [users objectForKey:password.text]) {
+        [self performSegueWithIdentifier:@"loginSuccess" sender:self];
+        username.text = nil;
+        password.text = nil;
     }
     else {
-        return NO;
-    }
-}
-
--(IBAction)loginWorked: (id) sender
-{
-    if ([self login]) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Login Alert" message:@"Login Success!!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
-        [alertView show];
+        password.text = nil;
+        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Oooops" message:@"Incorrect username or password" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [error show];
+        
         
     }
-    else {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Login Alert" message:@"Login Failed try again" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
-        [alertView show];
-    }
     
 }
-
 
 
 

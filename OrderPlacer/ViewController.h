@@ -10,21 +10,23 @@
 #import <RestKit/RestKit.h>
 #import "Connection.h"
 
-@interface ViewController : UIViewController
+
+@interface ViewController : UIViewController {
+    
+}
 
 @property IBOutlet UITextField * username;
 @property IBOutlet UITextField * password;
 @property UIButton * sender;
+@property NSDictionary *users;
 
 //-(void) configureRestKit;
--(BOOL) login;
--(void) dismissAlert;
+
+
+-(IBAction)login:(id)sender;
+
 //-(void) connectToDB;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
-@property (strong, nonatomic) IBOutlet UIView *mainView;
-
-
-@property UIAlertView *alert;
 
 @end
